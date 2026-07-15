@@ -1,8 +1,8 @@
 import React from 'react';
-import jersey1 from '../../assets/Screenshot 2026-07-15 060426.png';
-import jersey2 from '../../assets/Screenshot 2026-07-15 062206.png';
-import jersey3 from '../../assets/Screenshot 2026-07-15 061926.png';
-import jersey4 from '../../assets/Screenshot 2026-07-15 061944.png';
+import jersey1 from '../../assets/jersey1.png';
+import jersey2 from '../../assets/jersey2.png';
+import jersey3 from '../../assets/jersey3.png';
+import jersey4 from '../../assets/jersey4.png';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, EffectFade } from 'swiper/modules';
 import 'swiper/css';
