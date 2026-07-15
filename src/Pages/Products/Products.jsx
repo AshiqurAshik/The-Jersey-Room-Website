@@ -23,7 +23,7 @@ const Products = () => {
       <h1 className="text-3xl font-bold mb-2">All Jerseys</h1>
       <p className="mb-8 text-gray-600">Browse the full collection.</p>
 
-      {/* Category Buttons */}
+  
       <div className="flex gap-3 mb-8 flex-wrap">
         {categories.map((item) => (
           <button
@@ -38,7 +38,6 @@ const Products = () => {
         ))}
       </div>
 
-      {/* Products */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
         {displayProducts.map((product) => (
           <Link key={product.id} to={`/products/${product.id}`}>
