@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router';
+import Loading from '../Loading/Loading';
 
 const Feature = () => {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch('/Products.json')
@@ -13,8 +15,14 @@ const Feature = () => {
           .slice(0, 4);
 
         setProducts(randomProducts);
-      });
+      })
+      .catch((err) => console.error(err))
+      .finally(() => setLoading(false));
   }, []);
+
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <div className="max-w-7xl mx-auto px-6 py-12">

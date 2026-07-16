@@ -1,15 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router';
+import Loading from '../../Components/Loading/Loading';
 
 const Products = () => {
   const [products, setProducts] = useState([]);
   const [category, setCategory] = useState('All');
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
+
     fetch('/Products.json')
       .then((res) => res.json())
-      .then((data) => setProducts(data));
+      .then((data) => {
+        setProducts(data);
+      })
+      .catch((err) => console.error(err))
+      .finally(() => {
+        setLoading(false);
+      });
   }, []);
+
+  if (loading) {
+  return <Loading />;
+}
 
   const categories = ['All', ...new Set(products.map((p) => p.category))];
 
@@ -23,7 +37,6 @@ const Products = () => {
       <h1 className="text-3xl font-bold mb-2">All Jerseys</h1>
       <p className="mb-8 text-gray-600">Browse the full collection.</p>
 
-  
       <div className="flex gap-3 mb-8 flex-wrap">
         {categories.map((item) => (
           <button

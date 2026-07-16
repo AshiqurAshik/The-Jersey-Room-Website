@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
+import Swal from 'sweetalert2';
+import Loading from '../../Components/Loading/Loading';
 
 const Details = () => {
   const { id } = useParams();
+  const Navigate = useNavigate();
 
   const [product, setProduct] = useState(null);
   const [selectedSize, setSelectedSize] = useState('');
@@ -19,7 +22,12 @@ const Details = () => {
 
   const handleAddToCart = () => {
     if (!selectedSize) {
-      alert('Please select a size.');
+      Swal.fire({
+        icon: 'warning',
+        title: 'Select a Size',
+        text: 'Please select a size before adding the product to your cart.',
+        confirmButtonColor: '#0B3D2E',
+      });
       return;
     }
 
@@ -41,15 +49,26 @@ const Details = () => {
 
     localStorage.setItem('cart', JSON.stringify(cart));
 
-    alert('Product added to cart!');
+    Swal.fire({
+      icon: 'success',
+      title: 'Added to Cart!',
+      text: `${product.name} has been added to your cart.`,
+      confirmButtonText: 'Go to Cart',
+      cancelButtonText: 'Continue Shopping',
+      showCancelButton: true,
+      confirmButtonColor: '#0B3D2E',
+      cancelButtonColor: '#6B7280',
+      reverseButtons: true,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Navigate('/cart');
+      }
+    });
   };
 
   if (!product) {
-    return (
-      <div className="max-w-7xl mx-auto py-20 text-center">
-        <h2 className="text-2xl font-semibold">Loading...</h2>
-      </div>
-    );
+    return <Loading></Loading>
+    
   }
 
   return (
