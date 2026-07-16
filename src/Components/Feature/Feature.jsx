@@ -25,32 +25,52 @@ const Feature = () => {
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-6 py-12">
-      <h2 className="text-3xl font-bold mb-2">Featured Jerseys</h2>
-      <p className="text-gray-600 mb-8">
-        Discover some of our featured picks.
-      </p>
+    <div className="max-w-7xl mx-auto px-6 py-16">
+      <div className="flex items-end justify-between mb-10">
+        <div>
+          <span className="text-sm font-semibold uppercase tracking-wider text-[#0B3D2E]/70">
+            Hand-picked for you
+          </span>
+          <h2 className="mt-2 text-3xl md:text-4xl font-extrabold text-[#0A0A0A]">
+            Featured Jerseys
+          </h2>
+          <p className="mt-2 text-gray-500">
+            Discover some of our featured picks.
+          </p>
+        </div>
+
+        <Link
+          to="/products"
+          className="hidden sm:inline-block font-semibold text-[#0B3D2E] underline-offset-4 hover:underline transition"
+        >
+          View All →
+        </Link>
+      </div>
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
         {products.map((product) => (
           <Link key={product.id} to={`/products/${product.id}`}>
-            <div className="bg-gray-100 rounded-lg p-4 hover:shadow-lg transition">
-              <img
-                src={product.image}
-                alt={product.name}
-                className="w-full h-52 object-contain"
-              />
+            <div className="group relative overflow-hidden rounded-2xl bg-gray-50 border border-black/5 p-5 transition-all duration-300 hover:shadow-xl hover:shadow-black/10 hover:-translate-y-1">
+              <div className="absolute top-3 right-3 rounded-full bg-white/80 backdrop-blur px-2.5 py-1 text-xs font-semibold text-[#0B3D2E] shadow-sm">
+                ⭐ {product.rating}
+              </div>
 
-              <h3 className="mt-3 font-semibold text-center">
+              <div className="overflow-hidden rounded-xl">
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="w-full h-52 object-contain transition-transform duration-500 "
+                />
+              </div>
+
+              <h3 className="mt-4 font-semibold text-center text-[#0A0A0A] line-clamp-1">
                 {product.name}
               </h3>
 
-              <div className="flex justify-between items-center mt-3 text-sm">
-                <p className="font-semibold text-[#0B3D2E]">
+              <div className="flex justify-center items-center mt-2">
+                <p className="font-bold text-[#0B3D2E]">
                   ৳{product.price}
                 </p>
-
-                <p>⭐ {product.rating}</p>
               </div>
             </div>
           </Link>
