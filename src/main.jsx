@@ -8,11 +8,13 @@ import Root from './Pages/Root/Root';
 import Products from './Pages/Products/Products';
 import Cart from './Pages/Cart/Cart';
 import Details from './Pages/Details/Details';
+import Error from './Components/Error Page/Error';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Root></Root>,
+    errorElement:<Error></Error>,
     children: [
       {
         index: true,
