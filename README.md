@@ -1,16 +1,55 @@
-# React + Vite
+🏆 The Jersey Room
+A modern, responsive frontend e-commerce website for sports jerseys built with React.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+📖 Project Overview
+The Jersey Room is a frontend-only e-commerce application showcasing a premium shopping experience for football, basketball and other sports jerseys. Users can browse products, filter by category, view detailed information, choose sizes, manage a shopping cart and simulate checkout.
+✨ Features
+•	🏠 Home page with featured jerseys
+•	👕 Products page with category filtering
+•	⭐ Random featured products
+•	🔍 Product details page
+•	📏 Size selection
+•	➕ Quantity selector
+•	🛒 Shopping cart using LocalStorage
+•	❌ Remove items from cart
+•	✅ SweetAlert2 notifications
+•	💳 Checkout confirmation flow
+•	⏳ Reusable loading screen
+•	📱 Fully responsive design
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+🛠️ Tech Stack
+•	React
+•	React Router
+•	Tailwind CSS
+•	React Icons
+•	SweetAlert2
+•	LocalStorage
+•	Vercel
 
-## React Compiler
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+📂 Pages
+•	Home
+•	Products
+•	Product Details
+•	Shopping Cart
+•	404 Error Page
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+⚙️ Application Flow
+1.	Products are loaded from Products.json.
+2.	Users browse featured or all products.
+3.	Selecting a product opens its detail page.
+4.	Users choose size and quantity.
+5.	Items are stored in LocalStorage.
+6.	Cart calculates totals automatically.
+7.	Checkout displays confirmation and clears cart.
+
+   
+📦 Deployment
+Hosted on Vercel.
+
+
+👨‍💻 Author
+MD Ashiqur Rahman
+Frontend Developer
